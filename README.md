@@ -16,7 +16,7 @@ Most files in this library are set up to be WordPress plugins:
 
 For files that aren't set up as plugins follow steps 1 and 2 above and then copy and paste the code into your child theme's functions.php or place inside a custom functionality plugin.
 
-If you need help customising any of the snippets or do not understand how to use them, we recommend [hiring an EDD consultant](http://restrictcontentpro.com/consultants/).
+If you need help customising any of the snippets or do not understand how to use them, we recommend [hiring an RCP consultant](http://restrictcontentpro.com/consultants/).
 
 ## Submitting Your Snippet
 
