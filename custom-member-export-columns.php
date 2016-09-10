@@ -23,4 +23,4 @@ function pw_rcp_add_fields_to_export( $data ) {
 	return $data;
 
 }
-add_filiter( 'rcp_export_get_data_members', 'pw_rcp_add_fields_to_export' );
+add_filter( 'rcp_export_get_data_members', 'pw_rcp_add_fields_to_export' );
