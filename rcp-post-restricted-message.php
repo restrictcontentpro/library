@@ -56,7 +56,7 @@ add_action( 'save_post', 'rcp_save_post_level_restriction_message', 10, 2 );
  */
 function rcp_restricted_message_override( $message ) {
 
-	global $post, $rcp_options;
+	global $post;
 
 	$custom  = get_post_meta( $post->ID, 'rcp_post_level_restriction_message', true );
 
