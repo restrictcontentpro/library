@@ -33,7 +33,6 @@ function ag_rcp_send_pending_payment_reminders() {
 	global $rcp_payments_db;
 
 	$args = array(
-		'fields' => 'id',
 		'number' => 9999,
 		'status' => 'pending',
 		'date'   => array(
