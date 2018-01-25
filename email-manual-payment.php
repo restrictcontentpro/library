@@ -1,7 +1,15 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Email After Manual Payment
+ * Description: Emails a member after they sign up with the "Manual" payment gateway.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * Emails a member after they sign up with the "Manual" payment gateway.
- * You can u se this email to send further instructions on how to submit
+ * You can use this email to send further instructions on how to submit
  * payment via cheque, bank transfer, etc.
  */
 

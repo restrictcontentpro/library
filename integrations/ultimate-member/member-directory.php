@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Ultimate Member Directory
+ * Description: Adds support for displaying active RCP members in the member directories for Ultimate Member.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * The following plugin adds support for displaying active RCP members
  * in the member directories for Ultimate Member.
  *
@@ -9,8 +17,12 @@
 
 /**
  * Adds the subscription level dropdown to the member directory edit screen.
+ *
+ * @param UM_Admin_Metabox $um_metabox
+ *
+ * @return void
  */
-function jp_um_admin_extend_directory_options_general( $this ) {
+function jp_um_admin_extend_directory_options_general( $um_metabox ) {
 
 	$post_id     = get_the_ID();
 	$saved_level = get_post_meta( $post_id, 'um_rcp_subscription_level', true );
@@ -37,6 +49,11 @@ add_action( 'um_admin_extend_directory_options_general', 'jp_um_admin_extend_dir
 
 /**
  * Saves the subscription level selected on the member directory edit screen.
+ *
+ * @param int     $post_id
+ * @param WP_Post $post
+ *
+ * @return void
  */
 function jp_save_post_um_directory( $post_id, $post ) {
 
@@ -60,6 +77,11 @@ add_action( 'save_post_um_directory', 'jp_save_post_um_directory', 10, 2 );
 
 /**
  * Alters the member directory query to display active RCP members.
+ *
+ * @param array $query_args
+ * @param array $args
+ *
+ * @return array
  */
 function jp_um_prepare_user_query_args( $query_args, $args ) {
 

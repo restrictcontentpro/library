@@ -1,7 +1,19 @@
 <?php
 /**
- * This will reverse the order of the enabled gateways
- * in the dropdown on the registration form.
+ * Plugin Name: Restrict Content Pro - Reverse Gateways
+ * Description: Reverses the order of the enabled gateways on the registration form.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
+ * This will reverse the order of the enabled gateways on the registration form.
+ *
+ * @param array $enabled   Enabled gateways.
+ * @param array $available Available gateways.
+ *
+ * @return array
  */
 function jp_enabled_gateways_ordering( $enabled, $available ) {
 	return array_reverse( $enabled );

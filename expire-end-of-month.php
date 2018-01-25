@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - End-of-Month Expiration Dates
+ * Description: Forces expiration dates to always be set to the end of the month.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * Forces expiration dates to always be set to the end of the month.
  *
  * NOTE: Changing the calculated expiration date does not change the renewal date

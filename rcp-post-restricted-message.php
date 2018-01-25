@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Per-Post Restricted Message
+ * Description: Adds support for custom restriction messages per post.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * This plugin adds support for custom restriction messages per post.
  * If a custom message exists, it is used in place of the ones defined
  * in the RCP settings under Restrict > Settings > General.

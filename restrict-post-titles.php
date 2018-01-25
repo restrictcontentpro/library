@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Restrict Post Titles
+ * Description: Restricts post title content for unauthorized viewers.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * Restricts post title content for unauthorized viewers.
  *
  * @param string $title   Original post title.

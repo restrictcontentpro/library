@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Change subscription level after expiration
+ * Description: Moves a member to a new subscription level when their membership expires.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * Moves a member to a new subscription level when their membership expires.
  * This does not take payment again so it is recommended for moving a member
  * to a free level.

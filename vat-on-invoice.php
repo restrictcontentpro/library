@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - VAT on Invoices
+ * Description: Displays on the invoice how much of the payment was for VAT.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * Displays on the invoice how much of the payment was for VAT. This assumes you've bundled
  * the VAT into the cost of the subscription level. This will calculate your chosen
  * VAT percentage (20% by default) from the full cost of the subscription level and

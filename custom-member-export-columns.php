@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Custom Member Export Columns
+ * Description: Adds custom user meta data to each member's export row.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * Adds custom user meta data to each member's export row.
  *
  * 1. Add your column IDs / Names

@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Redirect to Previous Page After Login
+ * Description: Changes the default login redirect URL to the previous page instead of the current page.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * Changes the default login redirect URL to the previous page instead of the current page.
  *
  * @param array  $output    The output array of shortcode attributes.
