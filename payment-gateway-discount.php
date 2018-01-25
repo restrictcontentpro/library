@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Payment Gateway Discount
+ * Description: Automatically applies a recurring discount code when paying via a certain gateway.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * Automatically applies a recurring discount code when using the Stripe payment gateway.
  * You first need to create your discount code in Restrict > Discount Codes, then replace
  * `your_discount_code_here` below with your discount code value. If you wish to offer a

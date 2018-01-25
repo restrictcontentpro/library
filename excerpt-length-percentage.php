@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Percentage-Based Excerpt Length
+ * Description: Sets the excerpt length to a percentage of the post length.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * Normally the length of the excerpt is a fixed number of words for all posts. This snippet
  * changes that value to a percentage of the post's length. This example uses an excerpt
  * length of 10%.

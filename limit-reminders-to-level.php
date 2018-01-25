@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Reminders for One Level Only
+ * Description: Only send expiration/renewal reminders for one subscription level.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * Normally expiration and renewal reminders are sent to members of all subscription levels.
  * This snippet limits the emails to one specific subscription level only. There are two
  * functions shown below: the first limits expiration reminders to your chosen level

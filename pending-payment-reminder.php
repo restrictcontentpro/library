@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Pending Payment Reminder
+ * Description: Sends an email to a member when their payment has remained "Pending" for 24 hours.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * Sends an email to a member when their payment has remained "Pending" for 24 hours.
  * This can help remind users that their payment has not completed and prompt them to
  * complete their signup.

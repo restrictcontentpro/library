@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Simple User Listing
+ * Description: Adds two new shortcode parameters to the [userlist] shortcode in Simple User Listing: "rcp_subscription_level" and "rcp_status".
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * This code adds two new shortcode parameters to the
  * [userlist] shortcode in Simple User Listing.
  * They are:
@@ -9,9 +17,13 @@
  * Examples:
  * [userlist rcp_subscription_level="6"] - will show active members with the subscription level ID of 6.
  * [userlist rcp_subscription_level="6" rcp_status="expired"] - will show expired members with the subscription level ID of 6.
+ *
+ * @param array  $args     Query args.
+ * @param string $query_id Query ID.
+ * @param array  $atts     Shortcode attributes.
+ *
+ * @return array
  */
-
-
 function jp_sul_user_query_args( $args, $query_id, $atts ) {
 
 	if ( ! empty( $atts['rcp_subscription_level'] ) ) {

@@ -1,17 +1,30 @@
 <?php
 /**
- * This will make the Auto Renew checkbox unchecked by default
- * on the registration form.
+ * Plugin Name: Restrict Content Pro - Auto Renew Default to Unchecked
+ * Description: Makes the Auto Renew checkbox unchecked by default on the registration form.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
  */
 
-// Remove the default checkbox
+/**
+ * Remove the default checkbox.
+ *
+ * @return void
+ */
 function jp_override_autonew_checkbox() {
 	remove_action( 'rcp_before_registration_submit_field', 'rcp_add_auto_renew' );
 	add_action( 'rcp_before_registration_submit_field', 'jp_add_auto_renew' );
 }
 add_action( 'plugins_loaded', 'jp_override_autonew_checkbox' );
 
-// Add back an unchecked checkbox
+/**
+ * Add back an unchecked checkbox.
+ *
+ * @param array $levels
+ *
+ * @return void
+ */
 function jp_add_auto_renew( $levels = array() ) {
 	if( '3' == rcp_get_auto_renew_behavior() ) :
 ?>

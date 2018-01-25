@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Body Classes
+ * Description: Adds body classes to the registered pages in the Restrict Content Pro settings.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * Adds body classes to the registered pages in the Restrict Content Pro settings
  *
  * @param $classes

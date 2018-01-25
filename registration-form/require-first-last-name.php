@@ -1,6 +1,10 @@
 <?php
 /**
- * Make first and last name required fields during registration and profile edit.
+ * Plugin Name: Restrict Content Pro - Require First and Last Name
+ * Description: Makes first and last name required fields during registration and profile edit.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
  */
 
 /**

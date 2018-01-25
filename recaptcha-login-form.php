@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Login Form reCAPTCHA
+ * Description: Adds reCAPTCHA to the Restrict Content Pro login form.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * Adds reCAPTCHA to the RCP login form
  *
  * reCAPTCHA must be enabled in Restrict > Settings > Misc.

@@ -1,5 +1,13 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Override PayPal Notify URL
+ * Description: Changes the notify_url sent to PayPal during PayPal Standard payments.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * This will change the notify_url sent to PayPal during PayPal Standard payments.
  *
  * By default, RCP sends the local site URL. If you're developing on localhost

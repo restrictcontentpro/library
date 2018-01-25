@@ -1,8 +1,20 @@
 <?php
 /**
+ * Plugin Name: Restrict Content Pro - Hide Lower Cost Levels
+ * Description: Hides subscription levels on the registration form page if their price is lower than the price of the member's current level.
+ * Version: 1.0
+ * Author: Restrict Content Pro Team
+ * License: GPL2
+ */
+
+/**
  * This will hide subscription levels on the registration form page
  * if their price is lower than the price of member's current
  * subscription level.
+ *
+ * @param array $levels
+ *
+ * @return array
  */
 function jp_hide_lower_cost_levels( $levels ) {
 
