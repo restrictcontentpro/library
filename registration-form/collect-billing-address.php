@@ -18,10 +18,13 @@ class RCP_Billing_Address {
 	 */
 	public function __construct() {
 		add_action( 'rcp_after_password_registration_field', array( $this, 'fields' ) );
+		add_action( 'rcp_profile_editor_after', array( $this, 'fields' ) );
 		add_action( 'rcp_form_errors', array( $this, 'error_checks' ) );
 		add_filter( 'rcp_subscription_data', array( $this, 'subscription_data' ) );
 		add_filter( 'rcp_paypal_args', array( $this, 'paypal_args' ), 10, 2 );
 		add_action( 'rcp_edit_member_after', array( $this, 'member_details' ) );
+		add_action( 'rcp_edit_member', array( $this, 'save_member' ) );
+		add_action( 'rcp_user_profile_updated', array( $this, 'save_member' ) );
 		add_action( 'rcp_invoice_bill_to', array( $this, 'invoice' ), 10, 2 );
 	}
 
@@ -33,36 +36,58 @@ class RCP_Billing_Address {
 	 * @return void
 	 */
 	public function fields() {
-		$selected_country = isset( $_POST['rcp_country'] ) ? $_POST['rcp_country'] : '';
+		$default_fields = array(
+			'line1'   => '',
+			'line2'   => '',
+			'city'    => '',
+			'state'   => '',
+			'zip'     => '',
+			'country' => ''
+		);
+
+		$address = get_user_meta( get_current_user_id(), 'rcp_address', true );
+
+		if ( empty( $address ) || ! is_array( $address ) ) {
+			$address = $default_fields;
+		} else {
+			$address = wp_parse_args( $address, $default_fields );
+		}
+
+		$line_1  = ! empty( $_POST['rcp_street'] ) ? $_POST['rcp_street'] : $address['line1'];
+		$line_2  = ! empty( $_POST['rcp_street_2'] ) ? $_POST['rcp_street_2'] : $address['line2'];
+		$city    = ! empty( $_POST['rcp_city'] ) ? $_POST['rcp_city'] : $address['city'];
+		$country = ! empty( $_POST['rcp_country'] ) ? $_POST['rcp_country'] : $address['country'];
+		$state   = ! empty( $_POST['rcp_state'] ) ? $_POST['rcp_state'] : $address['state'];
+		$zip     = ! empty( $_POST['rcp_zip'] ) ? $_POST['rcp_zip'] : $address['zip'];
 		?>
 		<div id="rcp_user_address_fields">
 			<p id="rcp_street">
 				<label for="rcp_street"><?php _e( 'Address Line 1', 'rcp' ); ?></label>
-				<input name="rcp_street" id="rcp_street" class="required" type="text" value="<?php echo ! empty( $_POST['rcp_street'] ) ? esc_attr( $_POST['rcp_street'] ) : ''; ?>"/>
+				<input name="rcp_street" id="rcp_street" class="required" type="text" value="<?php echo esc_attr( $line_1 ); ?>"/>
 			</p>
 			<p id="rcp_street_2">
 				<label for="rcp_street_2"><?php _e( 'Address Line 2', 'rcp' ); ?></label>
-				<input name="rcp_street_2" id="rcp_street_2" type="text" value="<?php echo ! empty( $_POST['rcp_street_2'] ) ? esc_attr( $_POST['rcp_street_2'] ) : ''; ?>"/>
+				<input name="rcp_street_2" id="rcp_street_2" type="text" value="<?php echo esc_attr( $line_2 ); ?>"/>
 			</p>
 			<p id="rcp_city">
 				<label for="rcp_city"><?php _e( 'City', 'rcp' ); ?></label>
-				<input name="rcp_city" id="rcp_city" class="required" type="text" value="<?php echo ! empty( $_POST['rcp_city'] ) ? esc_attr( $_POST['rcp_city'] ) : ''; ?>"/>
+				<input name="rcp_city" id="rcp_city" class="required" type="text" value="<?php echo esc_attr( $city ); ?>"/>
 			</p>
 			<p id="rcp_country">
 				<label for="rcp_country"><?php _e( 'Country', 'rcp' ); ?></label>
 				<select name="rcp_country" id="rcp_country">
-					<?php foreach ( $this->get_countries() as $key => $country ) : ?>
-						<option value="<?php echo esc_attr( $key ); ?>" <?php checked( $selected_country, $key ); ?>><?php echo $country; ?></option>
+					<?php foreach ( $this->get_countries() as $country_code => $country_name ) : ?>
+						<option value="<?php echo esc_attr( $country_code ); ?>" <?php selected( $country, $country_code ); ?>><?php echo esc_html( $country_name ); ?></option>
 					<?php endforeach; ?>
 				</select>
 			</p>
 			<p id="rcp_state">
 				<label for="rcp_state"><?php _e( 'State / Province', 'rcp' ); ?></label>
-				<input name="rcp_state" id="rcp_state" class="required" type="text" value="<?php echo ! empty( $_POST['rcp_state'] ) ? esc_attr( $_POST['rcp_state'] ) : ''; ?>"/>
+				<input name="rcp_state" id="rcp_state" class="required" type="text" value="<?php echo esc_attr( $state ); ?>"/>
 			</p>
 			<p id="rcp_zip">
 				<label for="rcp_zip"><?php _e( 'Zip / Postal Code', 'rcp' ); ?></label>
-				<input name="rcp_zip" id="rcp_zip" class="required" type="text" value="<?php echo ! empty( $_POST['rcp_zip'] ) ? esc_attr( $_POST['rcp_zip'] ) : ''; ?>"/>
+				<input name="rcp_zip" id="rcp_zip" class="required" type="text" value="<?php echo esc_attr( $zip ); ?>"/>
 			</p>
 		</div>
 		<?php
@@ -113,7 +138,7 @@ class RCP_Billing_Address {
 		$subscription_data['address']            = array();
 		$subscription_data['address']['line1']   = isset( $_POST['rcp_street'] ) ? sanitize_text_field( $_POST['rcp_street'] ) : '';
 		$subscription_data['address']['line2']   = isset( $_POST['rcp_street_2'] ) ? sanitize_text_field( $_POST['rcp_street_2'] ) : '';
-		$subscription_data['address']['line2']   = isset( $_POST['rcp_city'] ) ? sanitize_text_field( $_POST['rcp_city'] ) : '';
+		$subscription_data['address']['city']    = isset( $_POST['rcp_city'] ) ? sanitize_text_field( $_POST['rcp_city'] ) : '';
 		$subscription_data['address']['state']   = isset( $_POST['rcp_state'] ) ? sanitize_text_field( $_POST['rcp_state'] ) : '';
 		$subscription_data['address']['zip']     = isset( $_POST['rcp_zip'] ) ? sanitize_text_field( $_POST['rcp_zip'] ) : '';
 		$subscription_data['address']['country'] = isset( $_POST['rcp_country'] ) ? sanitize_text_field( $_POST['rcp_country'] ) : '';
@@ -160,10 +185,21 @@ class RCP_Billing_Address {
 	 */
 	public function member_details( $user_id ) {
 
+		$default_fields = array(
+			'line1'   => '',
+			'line2'   => '',
+			'city'    => '',
+			'state'   => '',
+			'zip'     => '',
+			'country' => ''
+		);
+
 		$address = get_user_meta( $user_id, 'rcp_address', true );
 
-		if ( empty( $address ) ) {
-			return;
+		if ( empty( $address ) || ! is_array( $address ) ) {
+			$address = $default_fields;
+		} else {
+			$address = wp_parse_args( $address, $default_fields );
 		}
 		?>
 		<tr class="form-field">
@@ -171,12 +207,87 @@ class RCP_Billing_Address {
 				<?php _e( 'Address', 'rcp' ); ?>
 			</th>
 			<td>
-				<?php foreach ( $address as $line ) : ?>
-					<?php echo esc_html( $line ) . '<br/>'; ?>
-				<?php endforeach; ?>
+				<p id="rcp_street">
+					<label for="rcp_street"><?php _e( 'Address Line 1', 'rcp' ); ?></label> <br/>
+					<input name="rcp_street" id="rcp_street" class="required" type="text" value="<?php echo esc_attr( $address['line1'] ); ?>" style="width: 300px;"/>
+				</p>
+				<p id="rcp_street_2">
+					<label for="rcp_street_2"><?php _e( 'Address Line 2', 'rcp' ); ?></label> <br/>
+					<input name="rcp_street_2" id="rcp_street_2" type="text" value="<?php echo esc_attr( $address['line2'] ); ?>" style="width: 300px;"/>
+				</p>
+				<p id="rcp_city">
+					<label for="rcp_city"><?php _e( 'City', 'rcp' ); ?></label> <br/>
+					<input name="rcp_city" id="rcp_city" class="required" type="text" value="<?php echo esc_attr( $address['city'] ); ?>" style="width: 300px;"/>
+				</p>
+				<p id="rcp_country">
+					<label for="rcp_country"><?php _e( 'Country', 'rcp' ); ?></label> <br/>
+					<select name="rcp_country" id="rcp_country" style="width: 300px;">
+						<?php foreach ( $this->get_countries() as $country_code => $country_name ) : ?>
+							<option value="<?php echo esc_attr( $country_code ); ?>" <?php selected( $address['country'], $country_code ); ?>><?php echo esc_html( $country_name ); ?></option>
+						<?php endforeach; ?>
+					</select>
+				</p>
+				<p id="rcp_state">
+					<label for="rcp_state"><?php _e( 'State / Province', 'rcp' ); ?></label> <br/>
+					<input name="rcp_state" id="rcp_state" class="required" type="text" value="<?php echo esc_attr( $address['state'] ); ?>" style="width: 300px;"/>
+				</p>
+				<p id="rcp_zip">
+					<label for="rcp_zip"><?php _e( 'Zip / Postal Code', 'rcp' ); ?></label> <br/>
+					<input name="rcp_zip" id="rcp_zip" class="required" type="text" value="<?php echo esc_attr( $address['zip'] ); ?>" style="width: 300px;"/>
+				</p>
 			</td>
 		</tr>
 		<?php
+	}
+
+	/**
+	 * Save address on admin "Edit Member" and member's front-end profile edit.
+	 *
+	 * @param int $user_id
+	 *
+	 * @access public
+	 * @since  1.0
+	 * @return void
+	 */
+	public function save_member( $user_id ) {
+
+		$address_fields = array(
+			'line1'   => '',
+			'line2'   => '',
+			'city'    => '',
+			'state'   => '',
+			'zip'     => '',
+			'country' => ''
+		);
+
+		if ( ! empty( $_POST['rcp_street'] ) ) {
+			$address_fields['line1'] = sanitize_text_field( $_POST['rcp_street'] );
+		}
+		if ( ! empty( $_POST['rcp_street_2'] ) ) {
+			$address_fields['line2'] = sanitize_text_field( $_POST['rcp_street_2'] );
+		}
+		if ( ! empty( $_POST['rcp_city'] ) ) {
+			$address_fields['city'] = sanitize_text_field( $_POST['rcp_city'] );
+		}
+		if ( ! empty( $_POST['rcp_country'] ) && array_key_exists( $_POST['rcp_country'], $this->get_countries() ) ) {
+			$address_fields['country'] = sanitize_text_field( $_POST['rcp_country'] );
+		}
+		if ( ! empty( $_POST['rcp_state'] ) ) {
+			$address_fields['state'] = sanitize_text_field( $_POST['rcp_state'] );
+		}
+		if ( ! empty( $_POST['rcp_zip'] ) ) {
+			$address_fields['zip'] = sanitize_text_field( $_POST['rcp_zip'] );
+		}
+
+		// Delete meta if no address details are saved.
+		if ( ! array_filter( $address_fields ) ) {
+			delete_user_meta( $user_id, 'rcp_address' );
+
+			return;
+		}
+
+		update_user_meta( $user_id, 'rcp_address', $address_fields );
+
 	}
 
 	/**
@@ -188,7 +299,7 @@ class RCP_Billing_Address {
 	 */
 	public function get_countries() {
 		$countries = array(
-			'*'  => __( 'Choose', 'rcp' ),
+			''   => __( 'Choose', 'rcp' ),
 			'US' => 'United States',
 			'CA' => 'Canada',
 			'GB' => 'United Kingdom',
@@ -445,20 +556,32 @@ class RCP_Billing_Address {
 	 * @param RCP_Member $member      Member object.
 	 *
 	 * @access public
-	 * @since 1.0
+	 * @since  1.0
 	 * @return void
 	 */
 	public function invoice( $rcp_payment, $member ) {
 
 		$address = get_user_meta( $member->ID, 'rcp_address', true );
 
-		if ( empty( $address ) ) {
+		if ( empty( $address ) || ( is_array( $address ) && ! array_filter( $address ) ) ) {
 			return;
 		}
 		?>
 		<p>
-			<?php foreach ( $address as $line ) : ?>
-				<?php echo esc_html( $line ) . '<br/>'; ?>
+			<?php foreach ( $address as $address_key => $line ) : ?>
+				<?php
+				if ( empty( $line ) ) {
+					continue;
+				}
+
+				// Display the name of the country rather than the key.
+				if ( 'country' == $address_key ) {
+					$countries = $this->get_countries();
+					$line      = array_key_exists( $line, $countries ) ? $countries[ $line ] : $line;
+				}
+
+				echo esc_html( $line ) . '<br/>';
+				?>
 			<?php endforeach; ?>
 		</p>
 		<?php
