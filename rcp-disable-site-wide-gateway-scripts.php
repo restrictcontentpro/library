@@ -14,6 +14,11 @@
  */
 function ag_rcp_maybe_disable_gateway_scripts() {
 
+	// Bail if RCP isn't installed.
+	if ( ! function_exists( 'rcp_is_registration_page' ) ) {
+		return;
+	}
+
 	// Allow on registration page.
 	if ( rcp_is_registration_page() ) {
 		return;
