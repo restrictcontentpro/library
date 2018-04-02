@@ -15,7 +15,7 @@
  * @return void
  */
 function ag_rcp_redirect_woocommerce_shop() {
-	if ( ! function_exists( 'is_shop' ) || ! is_shop() ) {
+	if ( ! function_exists( 'is_shop' ) || ! is_shop() || ! class_exists( 'RCP_Member' ) ) {
 		return;
 	}
 
