@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Restrict Content Pro - Restrict from Restricted Posts
+ * Plugin Name: Restrict Content Pro - Redirect from Restricted Posts
  * Description: Prevents unauthorized users from accessing restricted pages by redirecting them to another page.
  * Version: 1.0
  * Author: Restrict Content Pro Team
