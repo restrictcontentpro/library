@@ -21,7 +21,7 @@
  * @return void
  */
 function ag_um_rcp_metabox() {
-	add_meta_box( 'rcp_um_directory', __( 'Restrict Content Pro', 'rcp' ), 'jp_um_admin_extend_directory_options_general', 'um_directory', 'normal', 'default' );
+	add_meta_box( 'rcp_um_directory', __( 'Restrict Content Pro', 'rcp' ), 'jp_um_admin_extend_directory_options_general', 'um_directory', 'normal', 'high' );
 }
 
 add_action( 'add_meta_boxes', 'ag_um_rcp_metabox' );
@@ -107,16 +107,14 @@ function jp_um_prepare_user_query_args( $query_args, $args ) {
 	}
 
 	$query_args['meta_query'] = array(
+		'relation' => 'AND',
 		array(
-			'relation' => 'AND',
-			array(
-				'key'   => 'rcp_subscription_level',
-				'value' => absint( $level )
-			),
-			array(
-				'key'   => 'rcp_status',
-				'value' => 'active'
-			)
+			'key'   => 'rcp_subscription_level',
+			'value' => absint( $level )
+		),
+		array(
+			'key'   => 'rcp_status',
+			'value' => 'active'
 		)
 	);
 
