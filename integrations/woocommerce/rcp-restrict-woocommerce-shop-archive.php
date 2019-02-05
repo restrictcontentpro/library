@@ -1,21 +1,26 @@
 <?php
 /**
  * Plugin Name: Restrict Content Pro - Restrict WooCommerce Shop Archive
- * Description: Restricts access to the WooCommerce shop archive, using the settings specified in the "Restrict this Content" metabox.
+ * Description: Restricts access to the WooCommerce shop and shop taxonomy archives, using the settings specified in the "Restrict this Content" metabox.
  * Version: 1.0
  * Author: Restrict Content Pro team
  * License: GPL2
  */
 
 /**
- * Restricts access to the WooCommerce shop archive according to the settings specified in the metabox.
+ * Restricts access to the WooCommerce shop and shop taxonomy archives according to the settings specified in the metabox.
  * If the current user doesn't have access, they're redirected to the specified redirect URL in Restrict > Settings > Misc.
  *
  * @since 1.0
  * @return void
  */
 function ag_rcp_redirect_woocommerce_shop() {
-	if ( ! function_exists( 'is_shop' ) || ! is_shop() || ! class_exists( 'RCP_Member' ) ) {
+	if ( ! function_exists( 'is_shop' ) || ! class_exists( 'RCP_Member' ) ) {
+		return;
+	}
+	
+	// Bail if not the shop page or a shop taxonomy archive.
+	if ( ! is_shop() && ! is_product_taxonomy() ) {
 		return;
 	}
 
