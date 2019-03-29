@@ -130,7 +130,7 @@ add_action( 'save_post_product', 'ag_rcp_woo_save_meta' );
  */
 function ag_rcp_woo_payment_complete( $order_id, $order = false ) {
 
-	if ( ! function_exists( 'wc_get_order' ) || ! function_exists( 'rcp_add_user_to_subscription' ) ) {
+	if ( ! function_exists( 'wc_get_order' ) || ! function_exists( 'rcp_add_membership' ) ) {
 		return;
 	}
 
