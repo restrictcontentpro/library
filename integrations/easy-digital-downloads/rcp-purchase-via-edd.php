@@ -120,12 +120,15 @@ add_action( 'save_post_download', 'ag_rcp_edd_save_meta' );
  */
 function ag_rcp_edd_complete_purchase( $payment_id, $payment, $customer ) {
 
+	if ( ! function_exists( 'rcp_add_membership' ) ) {
+		return;
+	}
+
 	// There needs to be an account associated with the payment.
 	if ( empty( $payment->user_id ) ) {
 		return;
 	}
 
-	$member    = new RCP_Member( $payment->user_id );
 	$downloads = $payment->downloads;
 
 	if ( empty( $downloads ) || ! is_array( $downloads ) ) {
@@ -133,24 +136,47 @@ function ag_rcp_edd_complete_purchase( $payment_id, $payment, $customer ) {
 	}
 
 	foreach ( $downloads as $download ) {
-		$rcp_subscription_level_id = get_post_meta( $download['id'], '_rcp_edd_subscription_level_id', true );
+		$rcp_membership_level_id = get_post_meta( $download['id'], '_rcp_edd_subscription_level_id', true );
 
 		// Skip to next order item if this one doesn't grant an RCP membership.
-		if ( empty( $rcp_subscription_level_id ) ) {
+		if ( empty( $rcp_membership_level_id ) ) {
 			continue;
 		}
 
-		// Grant the user access to the designated subscription level.
-		$subscription_args = array(
-			'subscription_id' => absint( $rcp_subscription_level_id ),
-			'recurring'       => false // This doesn't support renewals.
+		// Create customer record if it doesn't already exist.
+		$customer = rcp_get_customer_by_user_id( $payment->user_id );
+
+		if ( empty( $customer ) ) {
+			$customer_id = rcp_add_customer( array(
+				'user_id' => absint( $payment->user_id )
+			) );
+
+			if ( empty( $customer_id ) ) {
+				return;
+			}
+		} else {
+			$customer_id = $customer->get_id();
+		}
+
+		// Grant the user access to the designated membership level.
+		$membership_args = array(
+			'customer_id' => absint( $customer_id ),
+			'status'      => 'active',
+			'object_id'   => absint( $rcp_membership_level_id ),
+			'recurring'   => false // This doesn't support renewals.
 		);
 
-		// This function will auto calculate the expiration date and assign the correct status.
-		rcp_add_user_to_subscription( $member->ID, $subscription_args );
+		// This function will auto calculate the expiration date.
+		$membership_id = rcp_add_membership( $membership_args );
+
+		if ( empty( $membership_id ) ) {
+			return;
+		}
+
+		$membership = rcp_get_membership( $membership_id );
 
 		// Flag this membership as coming from Easy Digital Downloads.
-		rcp_add_member_note( $member->ID, sprintf( __( 'Membership added via Easy Digital Downloads order #%d' ), $payment_id ) );
+		$membership->add_note( sprintf( __( 'Membership added via Easy Digital Downloads order #%d' ), $payment_id ) );
 
 		// We can only add one membership at this time.
 		break;

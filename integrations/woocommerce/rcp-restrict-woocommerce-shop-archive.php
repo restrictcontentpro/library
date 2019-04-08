@@ -27,9 +27,8 @@ function ag_rcp_redirect_woocommerce_shop() {
 	global $rcp_options;
 
 	$shop_page_id = wc_get_page_id( 'shop' );
-	$member       = new RCP_Member( get_current_user_id() );
 
-	if ( $member->can_access( $shop_page_id ) ) {
+	if ( rcp_user_can_access( get_current_user_id(), $shop_page_id ) ) {
 		return;
 	}
 
