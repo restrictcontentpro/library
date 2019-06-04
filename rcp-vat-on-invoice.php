@@ -24,12 +24,15 @@ function ag_rcp_display_vat_on_invoice( $rcp_payment ) {
 	}
 
 	$vat_percentage = 20; // This is 20% VAT by default. Adjust number here to change VAT percentage.
+
+	// Calculate VAT amount.
+	$vat = $rcp_payment->amount / ( 1 + ( $vat_percentage / 100 ) );
+	$vat = round( ( $vat - $rcp_payment->amount ) * -1, 2 );
 	?>
 	<tr>
 		<td class="name"><?php printf( __( '%d%% VAT' ), $vat_percentage ); ?></td>
 		<td class="price">
 			<?php
-			$vat = round( $rcp_payment->amount * ( $vat_percentage / 100 ), 2 );
 			echo rcp_currency_filter( $vat );
 			?>
 		</td>
