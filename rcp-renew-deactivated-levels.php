@@ -7,4 +7,4 @@
  * License: GPL2
  */
 
-add_filter( 'rcp_can_renew_deactivated_memberships', '__return_true' );
+add_filter( 'rcp_can_renew_deactivated_membership_levels', '__return_true' );
