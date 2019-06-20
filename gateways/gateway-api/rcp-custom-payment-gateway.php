@@ -28,6 +28,10 @@ function pw_rcp_register_custom_gateway( $gateways ) {
 add_filter( 'rcp_payment_gateways', 'pw_rcp_register_custom_gateway' );
 
 /**
- * Include your class file.
+ * Load your class file.
  */
-require_once plugin_dir_path( __FILE__ ) . 'class-rcp-payment-gateway-custom.php';
+function ag_rcp_load_custom_gateway() {
+	require_once plugin_dir_path( __FILE__ ) . 'class-rcp-payment-gateway-custom.php';
+}
+
+add_action( 'plugins_loaded', 'ag_rcp_load_custom_gateway' );
