@@ -20,9 +20,12 @@ function ag_rcp_restrict_entire_site() {
 		return;
 	}
 
-	// If current user has an active subscription, bail.
-	$allowed_statuses = array( 'free', 'active', 'cancelled' );
-	if ( rcp_get_subscription_id() && ! rcp_is_expired() && in_array( rcp_get_status(), $allowed_statuses ) ) {
+	if ( ! function_exists( 'rcp_user_has_active_membership' ) ) {
+		return;
+	}
+
+	// If current user has an active membership, bail.
+	if ( rcp_user_has_active_membership() ) {
 		return;
 	}
 
