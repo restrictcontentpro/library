@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Generic Login Error
  * Description: Makes the login form error more generic to prevent revealing whether or not the account exists.
  * Version: 1.0
- * Author: Restrict Content Pro team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

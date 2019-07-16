@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Reminders for One Level Only
  * Description: Only send expiration/renewal reminders for one membership level.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: Sandhills Development, LLC
  * License: GPL2
  */
 

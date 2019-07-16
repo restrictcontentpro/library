@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Collect Billing Address
  * Description: Collect customers billing address during registration through Restrict Content Pro.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

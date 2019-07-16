@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Restrict Entire Site
  * Description: Restricts access to the entire site except for designated RCP pages such as registration, login, etc.
  * Version: 1.0
- * Author: Restrict Content Pro team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Per-Post Restricted Message
  * Description: Adds support for custom restriction messages per post.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

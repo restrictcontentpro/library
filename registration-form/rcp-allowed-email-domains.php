@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Allowed Email Domains
  * Description: Only allow registrations from certain email domains.
  * Version: 1.0
- * Author: Restrict Content Pro team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 add_action( 'rcp_before_form_errors', function( $data ) {

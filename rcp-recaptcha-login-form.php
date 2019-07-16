@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Login Form reCAPTCHA
  * Description: Adds reCAPTCHA to the Restrict Content Pro login form.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

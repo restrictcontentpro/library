@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Purchase via Woocommerce
  * Description: Allows users to purchase non-recurring Restrict Content Pro memberships through WooCommerce.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Override PayPal Notify URL
  * Description: Changes the notify_url sent to PayPal during PayPal Standard payments.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

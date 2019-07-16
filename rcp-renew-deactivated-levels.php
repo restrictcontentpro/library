@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Renew Deactivated Membership Levels
  * Description: Allows deactivated membership levels to be renewed by customers with existing memberships.
  * Version: 1.0
- * Author: Restrict Content Pro team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

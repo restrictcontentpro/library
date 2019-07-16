@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Restrict Blog Page
  * Description: Redirects non-active subscribers to the home page when they try to view the blog page.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 
