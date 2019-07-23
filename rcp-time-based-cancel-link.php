@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Time-Based Cancel Link
  * Description: Prevents the "Cancel your subscription" link from showing until the member has been subscribed to his or her current subscription for at least 3 months.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

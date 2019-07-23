@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Confirm Email
  * Description: Adds a second field to the registration form to confirm email address.
  * Version: 1.0
- * Author: Restrict Content Pro team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

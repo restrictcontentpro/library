@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Auto Renew Default to Unchecked
  * Description: Makes the Auto Renew checkbox unchecked by default on the registration form.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

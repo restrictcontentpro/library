@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Body Classes
  * Description: Adds body classes to the registered pages in the Restrict Content Pro settings.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

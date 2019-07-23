@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Remove Expiration Grace Period
  * Description: Removes the 2-day grace period on the expiration cron job query.
  * Version: 1.0
- * Author: Restrict Content Pro team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

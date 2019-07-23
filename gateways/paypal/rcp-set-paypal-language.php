@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - PayPal Language
  * Description: Instructs PayPal Standard to use the specified language instead of the language set in your PayPal account.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

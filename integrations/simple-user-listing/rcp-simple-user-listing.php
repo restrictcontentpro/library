@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Simple User Listing
  * Description: Adds two new shortcode parameters to the [userlist] shortcode in Simple User Listing: "rcp_subscription_level" and "rcp_status".
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

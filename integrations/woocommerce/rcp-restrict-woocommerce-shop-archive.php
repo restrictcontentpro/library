@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Restrict WooCommerce Shop Archive
  * Description: Restricts access to the WooCommerce shop and shop taxonomy archives, using the settings specified in the "Restrict this Content" metabox.
  * Version: 1.0
- * Author: Restrict Content Pro team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

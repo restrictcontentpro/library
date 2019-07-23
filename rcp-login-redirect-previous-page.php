@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Redirect to Previous Page After Login
  * Description: Changes the default login redirect URL to the previous page instead of the current page.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

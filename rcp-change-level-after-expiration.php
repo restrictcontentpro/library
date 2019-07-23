@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Change membership level after expiration
  * Description: Moves a member to a new membership level when their membership expires.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

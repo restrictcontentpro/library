@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Redirect from Restricted Posts
  * Description: Prevents unauthorized users from accessing restricted pages by redirecting them to another page.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

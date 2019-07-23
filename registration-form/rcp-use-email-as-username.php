@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Email as Username
  * Description: Use the email address as the username on the registration form.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

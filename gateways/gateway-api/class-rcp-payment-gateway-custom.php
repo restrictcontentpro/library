@@ -3,7 +3,7 @@
  * Custom Payment Gateway Class
  *
  * @package   rcp
- * @copyright Copyright (c) 2019, Restrict Content Pro team
+ * @copyright Copyright (c) 2019, Sandhills Development, LLC
  * @license   GPL2+
  */
 

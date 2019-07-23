@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Reverse Gateways
  * Description: Reverses the order of the enabled gateways on the registration form.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

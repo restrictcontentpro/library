@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Unrestrict RSS Feed
  * Description: Removes post restrictions from RSS feeds. Note that RSS feeds are publicly accessible so this will make your content visible to non-members if they visit your feed URL.
  * Version: 1.0
- * Author: Restrict Content Pro team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

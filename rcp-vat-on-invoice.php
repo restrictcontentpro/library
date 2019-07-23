@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - VAT on Invoices
  * Description: Displays on the invoice how much of the payment was for VAT.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 
