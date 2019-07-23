@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Add Expiration Grace Period
  * Description: Adds a 2-day grace period to the expiration cron job query.
  * Version: 1.0
- * Author: Restrict Content Pro team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

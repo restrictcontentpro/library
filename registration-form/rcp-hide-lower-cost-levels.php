@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Hide Lower Cost Levels
  * Description: Hides membership levels on the registration form page if their price is lower than the price of the member's current level.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

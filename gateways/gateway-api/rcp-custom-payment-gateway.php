@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Custom Payment Gateway
  * Description: Adds support for a custom payment gateway.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

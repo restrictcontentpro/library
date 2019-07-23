@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Keep Default User Role
  * Description: Ensures that your specified default user role is never removed from members, even if their membership expires.
  * Version: 1.0
- * Author: Restrict Content Pro team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

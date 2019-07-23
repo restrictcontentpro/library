@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Exclude from Post Type Restrictions
  * Description: Allows you to exclude a post from global post type restrictions.
  * Version: 1.0
- * Author: Restrict Content Pro team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

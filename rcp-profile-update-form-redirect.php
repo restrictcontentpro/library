@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Profile Update Redirect
  * Description: Changes the URL members are redirected to after updating their profiles.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

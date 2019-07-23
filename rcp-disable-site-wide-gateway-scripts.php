@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Disable Site-Wide Gateway Scripts
  * Description: Ensures gateway scripts only load on Restrict Content Pro pages. This primarily prevents stripe.js from loading across the whole site.
  * Version: 1.0
- * Author: Restrict Content Pro team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 

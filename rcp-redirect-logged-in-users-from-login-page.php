@@ -3,7 +3,8 @@
  * Plugin Name: Restrict Content Pro - Redirect Logged In Users from Login Page
  * Description: If a logged in user tries to visit a page containing the [login_form] shortcode they will be redirected to their membership page.
  * Version: 1.0
- * Author: Restrict Content Pro Team
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * License: GPL2
  */
 
