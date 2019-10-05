@@ -37,7 +37,7 @@ function jp_rcp_membership_can_cancel( $can_cancel, $membership_id, $membership 
 	$timezone = ! empty( $timezone ) ? $timezone : 'UTC';
 
 	$cancel_date = new \DateTime( $membership->get_created_date( false ), new \DateTimeZone( $timezone ) );
-	$cancel_date->modify( '+3 months'); // change this if you want a different time period
+	$cancel_date->modify( '+12 months'); // change this if you want a different time period
 
 	$now = new \DateTime( 'now', new \DateTimeZone( $timezone ) );
 
