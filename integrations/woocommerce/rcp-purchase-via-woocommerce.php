@@ -12,7 +12,7 @@
  * INSTRUCTIONS:
  *
  * Once the plugin is installed, a new tab will be added to the product data section on the "Edit Product" page.
- * Click the "RCP Membership" tab to assign an RCP subscription level to the product. This membership level
+ * Click the "RCP Membership" tab to assign an RCP membership level to the product. This membership level
  * will be granted to any users who purchase this product.
  *
  * NOTES:
@@ -54,26 +54,30 @@ function ag_rcp_woo_data_display() {
 	?>
 	<div id="rcp_membership" class="panel woocommerce_options_panel">
 		<div class="options_group">
-			<p><?php _e( 'When a user purchases this product, grant them access to a Restrict Content Pro subscription level.' ); ?></p>
+			<?php if ( function_exists( 'rcp_get_subscription_levels' ) ) : ?>
+				<p><?php _e( 'When a user purchases this product, grant them access to a Restrict Content Pro membership level.' ); ?></p>
 
-			<?php
-			$subscription_levels    = rcp_get_subscription_levels( 'all' );
-			$subscription_level_ids = array(
-				0 => __( 'None' )
-			);
+				<?php
+				$subscription_levels    = rcp_get_subscription_levels( 'all' );
+				$subscription_level_ids = array(
+					0 => __( 'None' )
+				);
 
-			foreach ( $subscription_levels as $level ) {
-				$subscription_level_ids[ $level->id ] = $level->name;
-			}
+				foreach ( $subscription_levels as $level ) {
+					$subscription_level_ids[ $level->id ] = $level->name;
+				}
 
-			woocommerce_wp_select( array(
-				'id'      => '_rcp_woo_subscription_level_id',
-				'label'   => __( 'Subscription Level' ),
-				'options' => $subscription_level_ids
-			) )
-			?>
+				woocommerce_wp_select( array(
+					'id'      => '_rcp_woo_subscription_level_id',
+					'label'   => __( 'Membership Level' ),
+					'options' => $subscription_level_ids
+				) )
+				?>
 
-			<?php wp_nonce_field( 'rcp_woo_product_subscription_level_meta_nonce', 'rcp_woo_product_subscription_level_meta_nonce', false ); ?>
+				<?php wp_nonce_field( 'rcp_woo_product_subscription_level_meta_nonce', 'rcp_woo_product_subscription_level_meta_nonce', false ); ?>
+			<?php else : ?>
+				<p><?php _e( 'Please make sure you have Restrict Content Pro activated.' ); ?></p>
+			<?php endif; ?>
 		</div>
 	</div>
 	<?php
