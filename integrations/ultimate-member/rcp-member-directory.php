@@ -107,16 +107,14 @@ function jp_um_prepare_user_query_args( $query_args, $args ) {
 		return $query_args;
 	}
 
-	$query_args['meta_query'] = array(
-		'relation' => 'AND',
-		array(
-			'key'   => 'rcp_subscription_level',
-			'value' => absint( $level )
-		),
-		array(
-			'key'   => 'rcp_status',
-			'value' => 'active'
-		)
+	$query_args['meta_query']['relation'] = 'AND';
+	$query_args['meta_query'][] = array(
+		'key'   => 'rcp_subscription_level',
+		'value' => absint( $level )
+	);
+	$query_args['meta_query'][] = array(
+		'key'   => 'rcp_status',
+		'value' => 'active'
 	);
 
 	// Remove the UM filters since we're just showing active RCP members.
