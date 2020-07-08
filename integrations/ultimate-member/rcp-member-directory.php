@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Restrict Content Pro - Ultimate Member Directory
  * Description: Adds support for displaying active RCP members in the member directories for Ultimate Member.
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Sandhills Development, LLC
  * Author URI: https://sandhillsdev.com
  * License: GPL2
