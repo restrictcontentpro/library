@@ -22,7 +22,7 @@ function ag_rcp_hide_license_key() {
 	}
 	?>
 	<style>
-		#rcp-settings-wrap .form-table tbody > tr:first-child + tr {
+		#rcp-settings-wrap #general .form-table tbody > tr:first-child + tr {
 			display: none;
 		}
 	</style>
