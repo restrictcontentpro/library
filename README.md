@@ -5,6 +5,8 @@ This is a community-maintained repository of code snippets that help modify the 
 
 Snippets are organized into categories (folders) and each snippet is placed in its own file with a name that describes what it does.
 
+While these snippets are available for you to take and use on your site, they are considered custom code and we do not offer support for custom code at this time. For more information or to take a look at our [support policy](https://help.ithemes.com/hc/en-us/articles/115008730948).
+
 ## Using Snippets
 
 Most files in this library are set up to be WordPress plugins:
