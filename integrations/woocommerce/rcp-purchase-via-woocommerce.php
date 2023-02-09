@@ -54,11 +54,11 @@ function ag_rcp_woo_data_display() {
 	?>
 	<div id="rcp_membership" class="panel woocommerce_options_panel">
 		<div class="options_group">
-			<?php if ( function_exists( 'rcp_get_subscription_levels' ) ) : ?>
+			<?php if ( function_exists( 'rcp_get_membership_levels' ) ) : ?>
 				<p><?php _e( 'When a user purchases this product, grant them access to a Restrict Content Pro membership level.' ); ?></p>
 
 				<?php
-				$subscription_levels    = rcp_get_subscription_levels( 'all' );
+				$subscription_levels    = rcp_get_membership_levels( 'all' );
 				$subscription_level_ids = array(
 					0 => __( 'None' )
 				);
